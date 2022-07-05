@@ -14,12 +14,15 @@ export default {
     name: 'Button',
     props: {
         text: String,
-        color: String
+        color: String,
     },
     methods: {
-        onclick() {
-            console.log('click');
-        }
-    }
+        onClick() {
+            this.$emit(
+                'btn-click'
+            )
+            //console.log('click');
+        },
+    },
 }
 </script>

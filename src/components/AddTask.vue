@@ -1,5 +1,8 @@
 
 <template>
+
+<!-- using v-model to bind form inputs -->
+
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
