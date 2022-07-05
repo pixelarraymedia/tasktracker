@@ -1,14 +1,12 @@
 <template>
     <header>
         <h1> {{ title }} </h1>
-        <Button text="add task" color="green" />
-        
-          <!----  
-            - We can create reusable text and colors
-
-          <Button text="Update task" color="green" />
-            <Button text="Delete task" color="red" />
-            -->
+      <Button
+      v-show="homePage"
+      @btn-click="$emit('toggle-add-task')"
+      :text="showAddTask ? 'Close' : 'Add Task'"
+      :color="showAddTask ? 'red' : 'green'"
+    />
     </header>
 </template>
 
@@ -26,7 +24,6 @@ import Button from './Button'
     props:{
         title: {
             type: String,
-
          // With no prop being passed we can use 'default: 'hello world''
 
         },

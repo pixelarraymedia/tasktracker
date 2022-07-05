@@ -3,7 +3,7 @@
   <div class="container">
 
     <Header title="Task Tracker" /> 
-    <AddTask />
+    <AddTask @add-task="addTask" />
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
 
   </div>
@@ -15,6 +15,7 @@
     import Header from './components/Header'
     import Tasks from './components/Tasks'
     import Task from './components/Task'
+
       export default {
         name: 'App',
         components: {
@@ -30,18 +31,19 @@
         },
 
           methods: {
-            deleteTask(id){
+              addTask(task){
+                this.tasks = [...this.tasks, task]
+              },
 
-              if(confirm('are you sure?')) {
-                
-                this.tasks = this.tasks.filter((task) => task.id !== 
-                id )
-              }
-            },
+              deleteTask(id){
+                if(confirm('are you sure?')) {
+                  this.tasks = this.tasks.filter((task) => task.id !== 
+                  id )
+                }
+              },
+              
             toggleReminder(id){
-
              // console.log(id)
-
              this.tasks = this.tasks.map((task) => task.id === id ? {...task,reminder: !task.reminder} : task 
              ) 
             },

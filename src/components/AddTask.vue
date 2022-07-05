@@ -1,8 +1,4 @@
 
-https://youtu.be/qZXt1Aom3Cs?list=PL7spM49zEWCsk5BIy4i0fMAfgjPigt0bp&t=3548 
-
-log
-
 <template>
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
@@ -37,6 +33,7 @@ export default {
       reminder: false,
     }
   },
+
   methods: {
     onSubmit(e) {
       e.preventDefault()
@@ -50,6 +47,9 @@ export default {
         day: this.day,
         reminder: this.reminder,
       }
+
+        // console.log(newTask);
+      
       this.$emit('add-task', newTask)
       this.text = ''
       this.day = ''
@@ -57,6 +57,7 @@ export default {
     },
   },
 }
+
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
  <template>  
 
-    <div @dblclick="$emit('toggle-reminder',)" :class="[task.reminder ? 'reminder' : '', 'task']"> 
+    <div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']"> 
         <h3> {{ task.text }}
             <i @click="onDelete(task.id)" class="fas fa-times"></i>
             </h3>
@@ -16,13 +16,15 @@
         props: {
             task: Object
         },
-        // Creating a method for event
-                // methods: {
-                //  onDelete(id) {
-                //   this.$emit('delete-task', id)
-            //     },
-            //   },
-    }
+    
+    methods: {
+        onDelete(id){
+               //this.$emit('delete-task', id)
+            this.$emit('delete-task')
+        },
+    },
+ }
+
 </script>
 
 <style scope>
